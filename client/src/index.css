@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Outfit:wght@300;400;500;600;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Outfit:wght@300;400;500;600;800&family=Space+Grotesk:wght@300..700&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -6,60 +6,33 @@
 
 @layer base {
   :root {
-    --font-sans: 'Outfit', sans-serif;
+    --font-sans: 'Space Grotesk', sans-serif;
     --font-display: 'Cinzel Decorative', cursive;
 
-    /* Light Theme (Subtle, slightly warm grey with vibrant accents) */
-    --background: 0 0% 98%;
-    --foreground: 240 10% 10%;
+    /* Dark Side Theme - Default Dark */
+    --background: 0 0% 0%;
+    --foreground: 0 0% 100%;
     
-    /* Psychedelic Accents */
-    --primary: 320 100% 50%; /* Magenta */
-    --primary-foreground: 0 0% 100%;
-    
-    --secondary: 180 100% 40%; /* Cyan */
-    --secondary-foreground: 240 10% 10%;
-    
-    --accent: 50 100% 50%; /* Yellow */
-    --accent-foreground: 240 10% 10%;
+    --primary: 0 100% 50%; /* Red */
+    --secondary: 200 100% 50%; /* Blue */
+    --accent: 60 100% 50%; /* Yellow */
 
-    --muted: 240 5% 90%;
-    --muted-foreground: 240 5% 40%;
+    --muted: 0 0% 10%;
+    --muted-foreground: 0 0% 70%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 240 10% 10%;
+    --card: 0 0% 2%;
+    --card-foreground: 0 0% 100%;
     
-    --border: 240 5% 85%;
-    --input: 240 5% 90%;
-    --ring: 320 100% 50%;
+    --border: 0 0% 15%;
+    --input: 0 0% 10%;
+    --ring: 0 0% 100%;
 
-    --radius: 0.75rem;
+    --radius: 0rem;
   }
 
   .dark {
-    /* Dark Theme (Deep space/psychedelic canvas) */
-    --background: 240 15% 4%;
-    --foreground: 0 0% 98%;
-    
-    /* Vibrant, glowing accents against dark */
-    --primary: 320 100% 60%; /* Glowing Magenta */
-    --primary-foreground: 0 0% 100%;
-    
-    --secondary: 180 100% 50%; /* Glowing Cyan */
-    --secondary-foreground: 0 0% 0%;
-    
-    --accent: 50 100% 55%; /* Glowing Yellow */
-    --accent-foreground: 0 0% 0%;
-
-    --muted: 240 10% 15%;
-    --muted-foreground: 240 5% 65%;
-
-    --card: 240 15% 6%;
-    --card-foreground: 0 0% 98%;
-    
-    --border: 240 15% 15%;
-    --input: 240 15% 12%;
-    --ring: 320 100% 60%;
+    --background: 0 0% 0%;
+    --foreground: 0 0% 100%;
   }
 
   * {
@@ -67,48 +40,64 @@
   }
 
   body {
-    @apply bg-background text-foreground antialiased overflow-x-hidden transition-colors duration-500;
+    @apply bg-background text-foreground antialiased overflow-x-hidden;
     font-family: var(--font-sans);
   }
 
   h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-display);
-    @apply tracking-wide;
+    @apply tracking-tighter;
   }
 }
 
 @layer utilities {
-  .text-glow {
-    text-shadow: 0 0 10px rgba(255, 255, 255, 0.3), 0 0 20px rgba(255, 255, 255, 0.2);
+  .prism-rainbow {
+    background: linear-gradient(90deg, 
+      #ff0000 0%, 
+      #ff8000 16.6%, 
+      #ffff00 33.3%, 
+      #00ff00 50%, 
+      #00ffff 66.6%, 
+      #0000ff 83.3%, 
+      #8000ff 100%
+    );
   }
   
-  .text-glow-primary {
-    text-shadow: 0 0 10px hsla(var(--primary) / 0.5), 0 0 30px hsla(var(--primary) / 0.3);
+  .text-prism {
+    background: linear-gradient(90deg, #ff0000, #ff8000, #ffff00, #00ff00, #00ffff, #0000ff, #8000ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 200% auto;
+    animation: prism-slide 5s linear infinite;
   }
 
-  .glass-panel {
-    @apply bg-background/60 backdrop-blur-xl border border-white/10 shadow-2xl;
+  .glow-red { filter: drop-shadow(0 0 10px rgba(255, 0, 0, 0.5)); }
+  .glow-blue { filter: drop-shadow(0 0 10px rgba(0, 0, 255, 0.5)); }
+  
+  .dark-side-gradient {
+    background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
   }
 
   .psychedelic-gradient-text {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary via-secondary to-accent animate-gradient-x;
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-red-500 via-yellow-500 to-blue-500;
   }
 }
 
-/* Custom Animations */
-@keyframes gradient-x {
-  0%, 100% {
-    background-size: 200% 200%;
-    background-position: left center;
-  }
-  50% {
-    background-size: 200% 200%;
-    background-position: right center;
-  }
+@keyframes prism-slide {
+  to { background-position: 200% center; }
 }
 
-.animate-gradient-x {
-  animation: gradient-x 8s ease infinite;
+@keyframes rainbow-flow {
+  0% { stop-color: #ff0000; }
+  20% { stop-color: #ffff00; }
+  40% { stop-color: #00ff00; }
+  60% { stop-color: #00ffff; }
+  80% { stop-color: #0000ff; }
+  100% { stop-color: #ff0000; }
+}
+
+.animate-rainbow {
+  animation: rainbow-flow 5s linear infinite;
 }
 
 @keyframes float {
@@ -125,7 +114,6 @@
   animation: float 7s ease-in-out infinite 2s;
 }
 
-/* Smooth scrolling for anchor links */
 html {
   scroll-behavior: smooth;
 }

@@ -12,85 +12,75 @@ const skills = [
 
 export function About() {
   return (
-    <section id="about" className="py-24 relative">
+    <section id="about" className="py-32 relative bg-black overflow-hidden">
+      {/* Rainbow divider */}
+      <div className="absolute top-0 left-0 w-full h-1 prism-rainbow opacity-50" />
+      
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
+          viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="text-center mb-16"
+          className="text-center mb-24"
         >
-          <h2 className="text-4xl md:text-5xl font-display font-bold text-foreground mb-4">
-            Is There <span className="text-secondary">Anybody</span> Out There?
+          <h2 className="text-5xl md:text-7xl font-display font-black text-white mb-6 tracking-tighter">
+            THE <span className="text-prism">MORTAL</span> COIL
           </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-primary to-secondary mx-auto rounded-full" />
+          <p className="text-sm uppercase tracking-[0.5em] text-white/40 font-bold">Profile of a Creator</p>
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-          {/* Avatar / Visual Side */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-20 items-center">
           <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="lg:col-span-5 flex justify-center"
+            transition={{ duration: 1 }}
+            className="lg:col-span-5 relative"
           >
-            <div className="relative group">
-              <div className="absolute -inset-1 bg-gradient-to-r from-primary via-secondary to-accent rounded-2xl blur opacity-25 group-hover:opacity-50 transition duration-1000 group-hover:duration-200" />
-              <div className="relative aspect-[4/5] w-full max-w-md rounded-2xl overflow-hidden glass-panel p-2">
-                {/* cool abstract tech/music avatar placeholder */}
-                <img
-                  src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=800&q=80"
-                  alt="Manit Dangal - Abstract Representation"
-                  className="w-full h-full object-cover rounded-xl filter contrast-[1.1] saturate-[1.2]"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent rounded-xl" />
-              </div>
+            <div className="absolute -inset-4 prism-rainbow opacity-10 blur-3xl rounded-full animate-pulse" />
+            <div className="relative aspect-square w-full max-w-md mx-auto border border-white/10 p-4 bg-white/5">
+              <img
+                src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=800&q=80"
+                alt="Manit Dangal"
+                className="w-full h-full object-cover filter grayscale contrast-125 brightness-75 hover:grayscale-0 transition-all duration-700"
+              />
             </div>
           </motion.div>
 
-          {/* Text / Skills Side */}
           <motion.div
             initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            className="lg:col-span-7 space-y-8"
+            transition={{ duration: 1 }}
+            className="lg:col-span-7 space-y-12"
           >
-            <div className="space-y-6 text-lg text-muted-foreground font-light">
-              <p className="text-2xl font-medium text-foreground leading-snug">
-                I’m an 18-year-old developer, musician, and digital creator passionate about shaping the web and sound.
+            <div className="space-y-8">
+              <p className="text-3xl md:text-4xl font-light text-white leading-tight tracking-tight">
+                I’m an 18-year-old <span className="text-prism font-bold">developer</span> and <span className="text-prism font-bold">musician</span> inspired by the infinite.
               </p>
-              <p>
-                My journey in technology started with a simple curiosity about how things work behind the screen. Since then, I've dived deep into programming languages, building tools, and crafting experiences.
-              </p>
-              <p>
-                But logic without art is incomplete. Inspired by the profound sonic landscapes of Pink Floyd, I also compose music and play guitar, finding parallels between writing an elegant algorithm and structuring a beautiful melody.
+              <p className="text-xl text-white/60 font-light leading-relaxed">
+                Just as Pink Floyd built sonic cathedrals, I strive to build digital experiences that resonate. My toolkit is a blend of logic and frequency.
               </p>
             </div>
 
-            <div className="pt-6">
-              <h3 className="text-xl font-display font-bold text-foreground mb-6">My Toolkit</h3>
-              <div className="flex flex-wrap gap-4">
-                {skills.map((skill, index) => (
-                  <motion.div
-                    key={skill.name}
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.4, delay: 0.1 * index }}
-                    className="flex items-center gap-2 px-4 py-2 rounded-xl bg-card border border-border hover:border-primary hover:shadow-[0_0_15px_rgba(255,0,127,0.15)] transition-all duration-300 group cursor-default"
-                  >
-                    <span className="text-muted-foreground group-hover:text-primary transition-colors">
-                      {skill.icon}
-                    </span>
-                    <span className="font-medium text-foreground group-hover:text-primary transition-colors">
-                      {skill.name}
-                    </span>
-                  </motion.div>
-                ))}
-              </div>
+            <div className="grid grid-cols-2 gap-6">
+              {skills.map((skill, index) => (
+                <motion.div
+                  key={skill.name}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ delay: index * 0.1 }}
+                  className="flex items-center gap-4 p-4 border border-white/5 bg-white/5 hover:bg-white/10 transition-colors group"
+                >
+                  <span className="text-white/40 group-hover:text-white transition-colors">
+                    {skill.icon}
+                  </span>
+                  <span className="text-sm font-bold tracking-widest uppercase text-white/60 group-hover:text-white transition-colors">
+                    {skill.name}
+                  </span>
+                </motion.div>
+              ))}
             </div>
           </motion.div>
         </div>

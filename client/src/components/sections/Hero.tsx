@@ -1,82 +1,142 @@
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { ArrowDown } from "lucide-react";
+import { useRef } from "react";
 
 export function Hero() {
-  return (
-    <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
-      {/* Psychedelic Background Elements */}
-      <div className="absolute inset-0 z-0">
-        <div className="absolute top-[20%] left-[10%] w-[40vw] h-[40vw] rounded-full bg-primary/20 blur-[120px] mix-blend-screen animate-float" />
-        <div className="absolute top-[40%] right-[10%] w-[35vw] h-[35vw] rounded-full bg-secondary/20 blur-[100px] mix-blend-screen animate-float-delayed" />
-        <div className="absolute bottom-[10%] left-[30%] w-[50vw] h-[50vw] rounded-full bg-accent/10 blur-[150px] mix-blend-screen animate-float" style={{ animationDelay: '1s' }} />
-        
-        {/* Subtle grid pattern overlay */}
-        <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0iTTAgMGgyMHYyMEgwVjB6bTE5IDE5SDFWMWgxOHYxOHoiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4wMykiIGZpbGwtcnVsZT0iZXZlbm9kZCIvPjwvc3ZnPg==')] opacity-20" />
-      </div>
+  const containerRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start start", "end start"],
+  });
 
-      <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center flex flex-col items-center">
+  const prismY = useTransform(scrollYProgress, [0, 1], [0, 200]);
+  const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
+
+  return (
+    <section 
+      ref={containerRef}
+      id="hero" 
+      className="relative min-h-[120vh] flex items-center justify-center overflow-hidden bg-black"
+    >
+      {/* Prism Animation Container */}
+      <motion.div 
+        style={{ y: prismY, opacity }}
+        className="absolute inset-0 flex items-center justify-center pointer-events-none"
+      >
+        <svg 
+          viewBox="0 0 1000 1000" 
+          className="w-full h-full max-w-[800px] opacity-80"
+          preserveAspectRatio="xMidYMid meet"
+        >
+          {/* White beam */}
+          <motion.line 
+            x1="-100" y1="500" x2="400" y2="500" 
+            stroke="white" strokeWidth="4"
+            initial={{ pathLength: 0 }}
+            animate={{ pathLength: 1 }}
+            transition={{ duration: 1.5, ease: "easeIn" }}
+          />
+          
+          {/* Prism Triangle */}
+          <polygon 
+            points="400,500 600,300 600,700" 
+            fill="none" 
+            stroke="white" 
+            strokeWidth="2"
+            className="glow-blue"
+          />
+          
+          {/* Rainbow Spectrum */}
+          <g>
+            {[
+              { color: "#ff0000", yOffset: -30 },
+              { color: "#ff8000", yOffset: -10 },
+              { color: "#ffff00", yOffset: 10 },
+              { color: "#00ff00", yOffset: 30 },
+              { color: "#00ffff", yOffset: 50 },
+              { color: "#0000ff", yOffset: 70 },
+              { color: "#8000ff", yOffset: 90 },
+            ].map((beam, i) => (
+              <motion.path
+                key={i}
+                d={`M 600 500 L 1200 ${500 + beam.yOffset}`}
+                stroke={beam.color}
+                strokeWidth="8"
+                fill="none"
+                initial={{ pathLength: 0, opacity: 0 }}
+                animate={{ pathLength: 1, opacity: 0.6 }}
+                transition={{ delay: 1.5 + (i * 0.1), duration: 1 }}
+                className="mix-blend-screen"
+              />
+            ))}
+          </g>
+        </svg>
+      </motion.div>
+
+      <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center mt-[-10vh]">
         <motion.div
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1, ease: "easeOut" }}
-          className="mb-6 inline-block"
+          transition={{ duration: 1, delay: 2 }}
+          className="mb-8"
         >
-          <span className="px-4 py-1.5 rounded-full border border-primary/30 bg-primary/10 text-primary text-sm font-medium tracking-wide backdrop-blur-sm">
-            Welcome to the dark side
+          <span className="px-6 py-2 border-l-4 border-primary bg-white/5 text-primary text-sm font-bold tracking-[0.3em] uppercase">
+            Breathe in the air
           </span>
         </motion.div>
 
         <motion.h1 
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="text-5xl sm:text-7xl lg:text-8xl font-display font-black leading-tight mb-6"
+          transition={{ duration: 1, delay: 2.2 }}
+          className="text-6xl sm:text-8xl lg:text-9xl font-display font-black leading-none mb-8 tracking-tighter"
         >
-          Hi, I'm <br className="sm:hidden" />
-          <span className="psychedelic-gradient-text text-glow">Manit Dangal</span>
+          MANIT <br />
+          <span className="text-prism">DANGAL</span>
         </motion.h1>
 
         <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
-          className="text-lg sm:text-xl lg:text-2xl text-muted-foreground max-w-2xl mx-auto font-light leading-relaxed mb-12"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1, delay: 2.5 }}
+          className="text-xl sm:text-2xl text-muted-foreground max-w-2xl mx-auto font-light leading-relaxed mb-16 tracking-wide"
         >
-          A tech enthusiast, musician, and devoted <span className="text-foreground font-medium">Pink Floyd</span> fan exploring the intersection of code and art.
+          Tech enthusiast. Musician. <br />
+          <span className="text-white font-bold tracking-[0.2em] uppercase">The Dark Side of the Moon</span>
         </motion.p>
 
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.6 }}
-          className="flex flex-col sm:flex-row gap-4 justify-center"
+          transition={{ duration: 0.8, delay: 2.8 }}
+          className="flex flex-col sm:flex-row gap-6 justify-center items-center"
         >
           <a 
             href="#about"
-            className="px-8 py-4 rounded-xl font-bold text-primary-foreground bg-gradient-to-r from-primary to-secondary shadow-[0_0_20px_rgba(255,0,127,0.3)] hover:shadow-[0_0_30px_rgba(255,0,127,0.5)] hover:-translate-y-1 transition-all duration-300"
+            className="group relative px-10 py-4 overflow-hidden"
           >
-            Discover More
+            <div className="absolute inset-0 prism-rainbow opacity-20 group-hover:opacity-40 transition-opacity" />
+            <div className="absolute inset-0 border border-white/20 group-hover:border-white/50 transition-colors" />
+            <span className="relative z-10 font-bold tracking-widest uppercase">The Great Gig</span>
           </a>
           <a 
             href="#contact"
-            className="px-8 py-4 rounded-xl font-bold text-foreground border-2 border-border hover:border-primary hover:text-primary hover:bg-primary/5 transition-all duration-300"
+            className="font-bold tracking-widest uppercase hover:text-primary transition-colors border-b border-transparent hover:border-primary pb-1"
           >
-            Get in Touch
+            Connect
           </a>
         </motion.div>
       </div>
 
-      {/* Scroll indicator */}
       <motion.a
         href="#about"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ delay: 1.5, duration: 1 }}
-        className="absolute bottom-10 left-1/2 transform -translate-x-1/2 text-muted-foreground hover:text-primary transition-colors flex flex-col items-center gap-2 animate-bounce"
-        aria-label="Scroll down"
+        transition={{ delay: 4, duration: 1 }}
+        className="absolute bottom-10 left-1/2 transform -translate-x-1/2 text-white/50 hover:text-white transition-colors flex flex-col items-center gap-4"
       >
-        <span className="text-xs uppercase tracking-widest font-bold">Scroll</span>
-        <ArrowDown size={20} />
+        <span className="text-[10px] uppercase tracking-[0.5em] font-black">Descend</span>
+        <ArrowDown size={16} className="animate-bounce" />
       </motion.a>
     </section>
   );

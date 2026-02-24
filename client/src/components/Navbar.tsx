@@ -35,9 +35,15 @@ export function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <a href="#hero" className="relative group flex items-center gap-2">
-            <div className="w-8 h-8 rounded-full bg-gradient-to-br from-primary via-secondary to-accent animate-spin-slow shadow-[0_0_15px_rgba(255,0,127,0.5)]" style={{ animationDuration: '10s' }} />
-            <span className="font-display font-bold text-xl md:text-2xl tracking-wider text-foreground group-hover:text-primary transition-colors duration-300">
+          <a href="#hero" className="relative group flex items-center gap-4">
+            <div className="relative w-10 h-10 flex items-center justify-center">
+              <svg viewBox="0 0 100 100" className="w-full h-full">
+                <polygon points="50,20 80,80 20,80" fill="none" stroke="white" strokeWidth="2" />
+                <line x1="0" y1="60" x2="45" y2="60" stroke="white" strokeWidth="1" />
+                <path d="M 55 60 L 100 40" stroke="#ff0000" strokeWidth="1" className="animate-rainbow" />
+              </svg>
+            </div>
+            <span className="font-display font-black text-2xl tracking-tighter text-white group-hover:text-prism transition-all duration-300 uppercase">
               MANIT.
             </span>
           </a>

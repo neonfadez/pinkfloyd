@@ -30,22 +30,26 @@ const albums = [
 
 export function PinkFloyd() {
   return (
-    <section id="pink-floyd" className="py-24 relative bg-card/30 border-y border-border/50">
+    <section id="pink-floyd" className="py-32 relative bg-black">
+      {/* Rainbow divider */}
+      <div className="absolute top-0 left-0 w-full h-1 prism-rainbow opacity-30" />
+      
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
+        <div className="flex flex-col md:flex-row justify-between items-end mb-24 gap-12">
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="max-w-2xl"
+            transition={{ duration: 1 }}
+            className="max-w-3xl"
           >
-            <h2 className="text-4xl md:text-5xl font-display font-bold text-foreground mb-6">
-              Shine On You <br/>
-              <span className="psychedelic-gradient-text">Crazy Diamond</span>
+            <h2 className="text-5xl md:text-8xl font-display font-black text-white mb-8 tracking-tighter leading-none">
+              SHINE ON <br/>
+              <span className="text-prism">YOU CRAZY</span> <br/>
+              DIAMOND
             </h2>
-            <p className="text-lg text-muted-foreground font-light leading-relaxed">
-              Pink Floyd didn't just make music; they created sonic architecture. Their pioneering use of synthesizers, philosophical lyrics, and elaborate live shows redefined progressive and psychedelic rock, leaving an indelible mark on how I approach both code and composition.
+            <p className="text-xl text-white/50 font-light leading-relaxed tracking-wide">
+              Pink Floyd didn't just make music; they created sonic architecture. Their pioneering use of synthesizers, philosophical lyrics, and elaborate live shows redefined progressive and psychedelic rock.
             </p>
           </motion.div>
           
@@ -53,52 +57,43 @@ export function PinkFloyd() {
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.2 }}
+            transition={{ duration: 1 }}
           >
-            <button className="flex items-center gap-3 px-6 py-3 rounded-full glass-panel hover:bg-white/5 transition-all text-foreground hover:text-primary group">
-              <span className="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center group-hover:bg-primary group-hover:text-primary-foreground transition-all">
-                <Play size={18} className="ml-1" />
-              </span>
-              <span className="font-medium tracking-wide">Listen to Playlist</span>
+            <button className="flex items-center gap-4 px-8 py-4 border border-white/20 hover:border-white transition-all text-white group bg-white/5">
+              <Play size={20} className="fill-white group-hover:scale-125 transition-transform" />
+              <span className="font-bold tracking-[0.3em] uppercase text-sm">Initiate Playback</span>
             </button>
           </motion.div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-1px bg-white/10">
           {albums.map((album, index) => (
             <motion.div
               key={album.title}
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: index * 0.2 }}
-              className="group relative rounded-2xl overflow-hidden bg-background border border-border hover:border-primary/50 transition-all duration-500"
+              transition={{ duration: 0.8, delay: index * 0.2 }}
+              className="group relative overflow-hidden bg-black aspect-square"
             >
-              <div className="aspect-square overflow-hidden relative">
-                <div className={`absolute inset-0 bg-gradient-to-br ${album.color} opacity-40 mix-blend-overlay z-10`} />
-                <img 
-                  src={album.image} 
-                  alt={album.title}
-                  className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700 ease-out"
-                />
-                {/* Audio placeholder overlay */}
-                <div className="absolute inset-0 z-20 flex items-center justify-center opacity-0 group-hover:opacity-100 bg-black/40 backdrop-blur-sm transition-all duration-300">
-                  <button className="w-16 h-16 rounded-full bg-primary text-white flex items-center justify-center transform scale-75 group-hover:scale-100 transition-all duration-300 shadow-lg shadow-primary/50">
-                    <Play size={24} className="ml-1" />
-                  </button>
-                </div>
-              </div>
+              <img 
+                src={album.image} 
+                alt={album.title}
+                className="w-full h-full object-cover opacity-40 group-hover:opacity-80 group-hover:scale-110 transition-all duration-1000 grayscale group-hover:grayscale-0"
+              />
               
-              <div className="p-6 relative z-30 bg-card">
-                <div className="flex items-center justify-between mb-3">
-                  <h3 className="text-xl font-bold text-foreground font-display line-clamp-1">{album.title}</h3>
-                  <span className="text-xs font-mono px-2 py-1 rounded bg-secondary/10 text-secondary border border-secondary/20 flex-shrink-0">
+              <div className="absolute inset-0 p-8 flex flex-col justify-end bg-gradient-to-t from-black via-black/20 to-transparent">
+                <div className="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+                  <span className="text-[10px] font-bold tracking-[0.4em] uppercase text-white/40 mb-2 block">
                     {album.year}
                   </span>
+                  <h3 className="text-2xl font-black text-white font-display mb-4 uppercase tracking-tighter">
+                    {album.title}
+                  </h3>
+                  <p className="text-sm text-white/0 group-hover:text-white/60 transition-all duration-500 line-clamp-2 font-light">
+                    {album.desc}
+                  </p>
                 </div>
-                <p className="text-sm text-muted-foreground line-clamp-3">
-                  {album.desc}
-                </p>
               </div>
             </motion.div>
           ))}
