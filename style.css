@@ -1728,3 +1728,415 @@ html.light .form-group textarea {
     height: 18px;
   }
 }
+
+/* ========================================
+   RESPONSIVE DESIGN
+   ======================================== */
+
+/* --- Tablet (max 1024px) --- */
+@media (max-width: 1024px) {
+  .hero {
+    min-height: 100vh;
+  }
+
+  .hero-prism-container svg {
+    max-width: 600px;
+  }
+
+  .about {
+    padding: 5rem 0;
+  }
+
+  .about-header {
+    margin-bottom: 4rem;
+  }
+
+  .about-grid {
+    gap: 3rem;
+  }
+
+  .pink-floyd {
+    padding: 5rem 0;
+  }
+
+  .pf-header {
+    margin-bottom: 4rem;
+  }
+
+  .gallery {
+    padding: 4rem 0;
+  }
+
+  .contact {
+    padding: 4rem 0;
+  }
+}
+
+/* --- Small Tablet / Large Mobile (max 768px) --- */
+@media (max-width: 768px) {
+  .hero {
+    min-height: 100vh;
+    min-height: 100dvh;
+  }
+
+  .hero-prism-container svg {
+    max-width: 450px;
+    opacity: 0.5;
+  }
+
+  .hero-content {
+    margin-top: -5vh;
+    padding: 0 1.5rem;
+  }
+
+  .hero h1 {
+    font-size: clamp(2.5rem, 12vw, 5rem);
+  }
+
+  .hero-subtitle {
+    margin-bottom: 2.5rem;
+  }
+
+  .about {
+    padding: 4rem 0;
+  }
+
+  .about-header {
+    margin-bottom: 3rem;
+  }
+
+  .about-image-frame {
+    max-width: 18rem;
+  }
+
+  .skills-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+
+  .skill-card {
+    padding: 0.75rem;
+  }
+
+  .skill-card .skill-name {
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+  }
+
+  .pf-header-text h2 {
+    font-size: clamp(2rem, 8vw, 3.5rem);
+  }
+
+  .albums-grid {
+    grid-template-columns: 1fr !important;
+    gap: 0.5rem;
+    background: transparent;
+  }
+
+  .album-card {
+    aspect-ratio: 16/10;
+  }
+
+  .album-card img,
+  .wall-cover {
+    opacity: 0.6;
+    filter: grayscale(50%);
+  }
+
+  .album-card .album-desc {
+    color: rgba(255, 255, 255, 0.5);
+  }
+
+  .gallery-grid {
+    grid-template-columns: 1fr 1fr !important;
+    grid-auto-rows: 160px;
+    gap: 0.5rem;
+  }
+
+  .gallery-item.span-2-col {
+    grid-column: span 2;
+  }
+
+  .gallery-item.span-2-row {
+    grid-row: span 1;
+  }
+
+  .contact-grid {
+    gap: 2.5rem;
+  }
+
+  .contact-form-wrap {
+    padding: 1.5rem;
+  }
+
+  .social-link span {
+    font-size: 0.95rem;
+  }
+
+  .footer-inner {
+    text-align: center;
+    gap: 1rem;
+  }
+
+  .enter-title {
+    font-size: clamp(1.5rem, 6vw, 2.5rem);
+  }
+
+  .enter-prism {
+    width: 80px;
+    height: 80px;
+  }
+
+  .enter-btn {
+    padding: 0.75rem 2rem;
+    font-size: 0.875rem;
+  }
+
+  .music-toggle {
+    bottom: 1rem;
+    right: 1rem;
+    width: 40px;
+    height: 40px;
+  }
+}
+
+/* --- Mobile (max 480px) --- */
+@media (max-width: 480px) {
+  .hero {
+    min-height: 100vh;
+    min-height: 100dvh;
+  }
+
+  .hero-prism-container svg {
+    max-width: 320px;
+    opacity: 0.4;
+  }
+
+  .hero-content {
+    margin-top: 0;
+    padding: 0 1rem;
+  }
+
+  .hero h1 {
+    font-size: clamp(2rem, 14vw, 4rem);
+    margin: 1.5rem 0;
+  }
+
+  .hero-badge {
+    font-size: 0.7rem;
+    padding: 0.4rem 1rem;
+    letter-spacing: 0.2em;
+  }
+
+  .hero-subtitle {
+    font-size: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .hero-buttons {
+    gap: 1rem;
+  }
+
+  .btn-prism {
+    padding: 0.85rem 2rem;
+    font-size: 0.85rem;
+  }
+
+  .btn-ghost {
+    font-size: 0.85rem;
+  }
+
+  .scroll-indicator {
+    bottom: 1.5rem;
+  }
+
+  .scroll-indicator span {
+    font-size: 8px;
+  }
+
+  .about {
+    padding: 3rem 0;
+  }
+
+  .about-header {
+    margin-bottom: 2rem;
+  }
+
+  .about-header h2 {
+    font-size: clamp(1.8rem, 8vw, 3rem);
+  }
+
+  .about-grid {
+    gap: 2rem;
+  }
+
+  .about-image-frame {
+    max-width: 14rem;
+    padding: 0.5rem;
+  }
+
+  .about-text h3 {
+    font-size: clamp(1.2rem, 4vw, 1.5rem);
+    margin-bottom: 1rem;
+  }
+
+  .about-text .about-desc {
+    font-size: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .skills-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem;
+  }
+
+  .skill-card {
+    padding: 0.6rem;
+    gap: 0.5rem;
+  }
+
+  .skill-card .skill-icon svg {
+    width: 16px;
+    height: 16px;
+  }
+
+  .skill-card .skill-name {
+    font-size: 0.65rem;
+    letter-spacing: 0.08em;
+  }
+
+  .pink-floyd {
+    padding: 3rem 0;
+  }
+
+  .pf-header {
+    margin-bottom: 2.5rem;
+  }
+
+  .pf-header-text h2 {
+    font-size: clamp(1.8rem, 9vw, 3rem);
+    margin-bottom: 1rem;
+  }
+
+  .pf-header-text p {
+    font-size: 1rem;
+  }
+
+  .btn-play {
+    padding: 0.75rem 1.25rem;
+  }
+
+  .btn-play span {
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+  }
+
+  .album-card .album-title {
+    font-size: 1.125rem;
+  }
+
+  .album-card .album-overlay {
+    padding: 1.25rem;
+  }
+
+  .gallery {
+    padding: 3rem 0;
+  }
+
+  .gallery-header {
+    margin-bottom: 2rem;
+  }
+
+  .gallery-grid {
+    grid-auto-rows: 140px;
+  }
+
+  .contact {
+    padding: 3rem 0;
+  }
+
+  .contact-info h2 {
+    font-size: clamp(1.8rem, 7vw, 2.5rem);
+  }
+
+  .contact-info>p {
+    font-size: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .contact-form-wrap {
+    padding: 1.25rem;
+    border-radius: 1rem;
+  }
+
+  .contact-form-wrap h3 {
+    font-size: 1.25rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .form-group {
+    margin-bottom: 1rem;
+  }
+
+  .form-group input,
+  .form-group textarea {
+    padding: 0.75rem;
+    font-size: 0.9rem;
+  }
+
+  .form-group textarea {
+    min-height: 120px;
+  }
+
+  .btn-submit {
+    padding: 0.85rem;
+    font-size: 1rem;
+  }
+
+  .footer {
+    padding: 2rem 0;
+  }
+
+  .footer-brand {
+    font-size: 1rem;
+  }
+
+  .footer-copy {
+    font-size: 0.75rem;
+  }
+
+  .enter-content {
+    gap: 1.5rem;
+    padding: 0 1.5rem;
+  }
+
+  .enter-prism {
+    width: 64px;
+    height: 64px;
+  }
+
+  .enter-title {
+    font-size: clamp(1.25rem, 7vw, 2rem);
+  }
+
+  .enter-btn {
+    padding: 0.7rem 1.5rem;
+    font-size: 0.8rem;
+  }
+
+  .enter-hint {
+    font-size: 0.7rem;
+  }
+}
+
+/* Safe area for devices with notch */
+@supports (padding: max(0px)) {
+  .navbar {
+    padding-left: max(1rem, env(safe-area-inset-left));
+    padding-right: max(1rem, env(safe-area-inset-right));
+  }
+
+  .footer {
+    padding-bottom: max(2rem, env(safe-area-inset-bottom));
+  }
+}
