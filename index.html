@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+    <title>Manit Dangal — Developer, Musician & Pink Floyd Enthusiast from Nepal</title>
+    <meta name="description"
+        content="Manit Dangal (manitdangal) — developer, musician, and Pink Floyd enthusiast from Nepal. Flutter developer, IoT developer, and guitarist. Explore my work through the prism of The Dark Side of the Moon." />
+    <meta name="keywords"
+        content="manit dangal, manit, manitdangal, pinkfloyd, manitdangalpinkfloyd, pinkfloydnepal, pinkfloyd nepal, pink floyd nepal, manit dangal nepal, flutter developer nepal, iot developer nepal, developer musician nepal" />
+    <meta name="author" content="Manit Dangal" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://neonfadez.github.io/pinkfloyd/" />
+    <meta name="theme-color" content="#000000" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://neonfadez.github.io/pinkfloyd/" />
+    <meta property="og:title" content="Manit Dangal — The Dark Side of Code" />
+    <meta property="og:description"
+        content="Personal portfolio of Manit Dangal (manitdangal) — developer, musician, and Pink Floyd enthusiast from Nepal. Flutter developer, IoT developer, and guitarist." />
+    <meta property="og:image" content="https://neonfadez.github.io/pinkfloyd/images/main.jpg" />
+    <meta property="og:site_name" content="Manit Dangal Portfolio" />
+
+    <!-- Twitter / X -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Manit Dangal — The Dark Side of Code" />
+    <meta name="twitter:description"
+        content="Manit Dangal — developer, musician, and Pink Floyd enthusiast from Nepal. Explore my portfolio through the prism." />
+    <meta name="twitter:image" content="https://neonfadez.github.io/pinkfloyd/images/main.jpg" />
+
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Manit Dangal",
+        "alternateName": ["manitdangal", "manit", "neonfadez"],
+        "url": "https://neonfadez.github.io/pinkfloyd/",
+        "image": "https://neonfadez.github.io/pinkfloyd/images/main.jpg",
+        "description": "Developer, musician, and Pink Floyd enthusiast from Nepal. Flutter developer, IoT developer, and guitarist.",
+        "jobTitle": "Developer & Musician",
+        "knowsAbout": ["Flutter", "IoT", "HTML/CSS", "JavaScript", "C++", "Python", "Guitar", "Music Composition", "Pink Floyd"],
+        "sameAs": [
+            "https://www.instagram.com/manit.dangal",
+            "https://www.youtube.com/@ManitSounds",
+            "https://github.com/manitdangal"
+        ],
+        "nationality": {
+            "@type": "Country",
+            "name": "Nepal"
+        }
+    }
+    </script>
+
+    <link rel="icon" type="image/svg+xml" href="images/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Space+Grotesk:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;800&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+    <!-- Audio Player -->
+    <audio id="bg-music" loop preload="auto">
+        <source src="audio/comfortably-numb.mp3" type="audio/mpeg" />
+    </audio>
+
+    <!-- Click-to-Enter Overlay (browsers require user interaction for autoplay) -->
+    <div id="enter-overlay" class="enter-overlay">
+        <div class="enter-content">
+            <svg viewBox="0 0 100 100" class="enter-prism">
+                <polygon points="50,15 85,85 15,85" fill="none" stroke="white" stroke-width="1.5" />
+            </svg>
+            <p class="enter-title">MANIT DANGAL</p>
+            <button id="enter-btn" class="enter-btn">
+                <span>Click to Enter</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="white"
+                    stroke="none">
+                    <polygon points="6,3 20,12 6,21" />
+                </svg>
+            </button>
+            <p class="enter-hint">♪ Comfortably Numb will play</p>
+        </div>
+    </div>
+
+    <!-- Floating Music Toggle -->
+    <button id="music-toggle" class="music-toggle" aria-label="Toggle music" title="Toggle music">
+        <div class="music-bars">
+            <span></span><span></span><span></span><span></span>
+        </div>
+    </button>
+
+    <!-- ===== NAVBAR ===== -->
+    <header id="navbar" class="navbar">
+        <div class="container nav-inner">
+            <!-- Logo -->
+            <a href="#hero" class="logo">
+                <svg viewBox="0 0 100 100">
+                    <polygon points="50,20 80,80 20,80" fill="none" stroke="white" stroke-width="2" />
+                    <line x1="0" y1="60" x2="45" y2="60" stroke="white" stroke-width="1" />
+                    <path d="M 55 60 L 100 40" stroke="#ff0000" stroke-width="1" class="animate-rainbow-stroke" />
+                </svg>
+                <span class="logo-text">MANIT.</span>
+            </a>
+
+            <!-- Desktop Nav -->
+            <nav class="desktop-nav">
+                <ul>
+                    <li><a href="#hero">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#pink-floyd">Pink Floyd</a></li>
+                    <li><a href="#gallery">Gallery</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <div class="nav-divider"></div>
+                <button class="theme-toggle" aria-label="Toggle theme"></button>
+            </nav>
+
+            <!-- Mobile Controls -->
+            <div class="mobile-controls">
+                <button class="theme-toggle" aria-label="Toggle theme"></button>
+                <button id="hamburger" class="hamburger" aria-label="Toggle menu">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="4" x2="20" y1="12" y2="12" />
+                        <line x1="4" x2="20" y1="6" y2="6" />
+                        <line x1="4" x2="20" y1="18" y2="18" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Nav -->
+        <div id="mobile-nav" class="mobile-nav">
+            <ul>
+                <li><a href="#hero">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#pink-floyd">Pink Floyd</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- ===== HERO ===== -->
+    <section id="hero" class="hero">
+        <!-- Prism SVG -->
+        <div class="hero-prism-container">
+            <svg viewBox="0 0 1000 1000" preserveAspectRatio="xMidYMid meet">
+                <!-- White beam entering left face at exact intersection (380,500) -->
+                <line class="white-beam" x1="-100" y1="500" x2="380" y2="500" stroke="white" stroke-width="4"
+                    pathLength="1" />
+                <!-- Prism Triangle — apex UP, flat base at bottom (Dark Side of the Moon) -->
+                <polygon points="500,200 300,700 700,700" fill="none" stroke="white" stroke-width="2"
+                    class="prism-glow" />
+                <!-- Rainbow Spectrum exiting right face at exact intersection (620,500) -->
+                <path class="rainbow-beam" d="M 620 500 L 1200 300" stroke="#ff0000" stroke-width="8" fill="none"
+                    pathLength="1" style="mix-blend-mode:screen" />
+                <path class="rainbow-beam" d="M 620 500 L 1200 350" stroke="#ff8000" stroke-width="8" fill="none"
+                    pathLength="1" style="mix-blend-mode:screen" />
+                <path class="rainbow-beam" d="M 620 500 L 1200 400" stroke="#ffff00" stroke-width="8" fill="none"
+                    pathLength="1" style="mix-blend-mode:screen" />
+                <path class="rainbow-beam" d="M 620 500 L 1200 450" stroke="#00ff00" stroke-width="8" fill="none"
+                    pathLength="1" style="mix-blend-mode:screen" />
+                <path class="rainbow-beam" d="M 620 500 L 1200 500" stroke="#00ffff" stroke-width="8" fill="none"
+                    pathLength="1" style="mix-blend-mode:screen" />
+                <path class="rainbow-beam" d="M 620 500 L 1200 550" stroke="#0000ff" stroke-width="8" fill="none"
+                    pathLength="1" style="mix-blend-mode:screen" />
+                <path class="rainbow-beam" d="M 620 500 L 1200 600" stroke="#8000ff" stroke-width="8" fill="none"
+                    pathLength="1" style="mix-blend-mode:screen" />
+            </svg>
+        </div>
+
+        <!-- Hero Content -->
+        <div class="hero-content">
+            <div class="hero-badge">Breathe in the air</div>
+
+            <h1>
+                MANIT <br />
+                <span class="surname">DANGAL</span>
+            </h1>
+
+            <p class="hero-subtitle">
+                Tech enthusiast. Musician. <br />
+                <strong>The Dark Side of the Moon</strong>
+            </p>
+
+            <div class="hero-buttons">
+                <a href="#about" class="btn-prism">
+                    <div class="btn-bg"></div>
+                    <div class="btn-border"></div>
+                    <span>The Great Gig</span>
+                </a>
+                <a href="#contact" class="btn-ghost">Connect</a>
+            </div>
+        </div>
+
+        <!-- Scroll Indicator -->
+        <a href="#about" class="scroll-indicator">
+            <span>Descend</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 5v14" />
+                <path d="m19 12-7 7-7-7" />
+            </svg>
+        </a>
+    </section>
+
+    <!-- ===== ABOUT ===== -->
+    <section id="about" class="about">
+        <div class="rainbow-divider prism-rainbow"></div>
+
+        <div class="container">
+            <div class="about-header animate-on-scroll">
+                <h2>THE <span class="text-prism">MORTAL</span> COIL</h2>
+                <p>Profile of a Creator</p>
+            </div>
+
+            <div class="about-grid">
+                <!-- Image -->
+                <div class="about-image-wrap animate-on-scroll scale">
+                    <div class="glow"></div>
+                    <div class="about-image-frame">
+                        <img src="images/main.jpg" alt="Manit Dangal" />
+                    </div>
+                </div>
+
+                <!-- Text -->
+                <div class="about-text animate-on-scroll from-right">
+                    <h3>
+                        I'm an 18-year-old <strong class="text-prism">developer</strong> and <strong
+                            class="text-prism">musician</strong> inspired by the infinite.
+                    </h3>
+                    <p class="about-desc">
+                        Just as Pink Floyd built sonic cathedrals, I strive to build digital experiences that resonate.
+                        My toolkit is a blend of logic and frequency.
+                    </p>
+
+                    <div class="skills-grid stagger-children">
+                        <div class="skill-card animate-on-scroll">
+                            <span class="skill-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <path d="m18 16 4-4-4-4" />
+                                    <path d="m6 8-4 4 4 4" />
+                                    <path d="m14.5 4-5 16" />
+                                </svg>
+                            </span>
+                            <span class="skill-name">HTML/CSS</span>
+                        </div>
+                        <div class="skill-card animate-on-scroll">
+                            <span class="skill-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <polyline points="4 17 10 11 4 5" />
+                                    <line x1="12" x2="20" y1="19" y2="19" />
+                                </svg>
+                            </span>
+                            <span class="skill-name">JavaScript</span>
+                        </div>
+                        <div class="skill-card animate-on-scroll">
+                            <span class="skill-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <rect width="16" height="16" x="4" y="4" rx="2" />
+                                    <rect width="6" height="6" x="9" y="9" rx="1" />
+                                    <path d="M15 2v2" />
+                                    <path d="M15 20v2" />
+                                    <path d="M2 15h2" />
+                                    <path d="M2 9h2" />
+                                    <path d="M20 15h2" />
+                                    <path d="M20 9h2" />
+                                    <path d="M9 2v2" />
+                                    <path d="M9 20v2" />
+                                </svg>
+                            </span>
+                            <span class="skill-name">C++</span>
+                        </div>
+                        <div class="skill-card animate-on-scroll">
+                            <span class="skill-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <polyline points="4 17 10 11 4 5" />
+                                    <line x1="12" x2="20" y1="19" y2="19" />
+                                </svg>
+                            </span>
+                            <span class="skill-name">Python</span>
+                        </div>
+                        <div class="skill-card animate-on-scroll">
+                            <span class="skill-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <path d="M9 18V5l12-2v13" />
+                                    <circle cx="6" cy="18" r="3" />
+                                    <circle cx="18" cy="16" r="3" />
+                                </svg>
+                            </span>
+                            <span class="skill-name">Guitar</span>
+                        </div>
+                        <div class="skill-card animate-on-scroll">
+                            <span class="skill-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <path d="M9 18V5l12-2v13" />
+                                    <circle cx="6" cy="18" r="3" />
+                                    <circle cx="18" cy="16" r="3" />
+                                </svg>
+                            </span>
+                            <span class="skill-name">Music Composition</span>
+                        </div>
+                        <div class="skill-card animate-on-scroll">
+                            <span class="skill-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <path d="M12 18H6a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v4" />
+                                    <path d="m15 16 3 3 3-3" />
+                                    <path d="M18 13v6" />
+                                </svg>
+                            </span>
+                            <span class="skill-name">Flutter Dev</span>
+                        </div>
+                        <div class="skill-card animate-on-scroll">
+                            <span class="skill-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <path d="M13 2v8l4-4" />
+                                    <path d="M13 10h-2a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2" />
+                                    <circle cx="18" cy="18" r="3" />
+                                    <path d="M6 12v6" />
+                                    <circle cx="6" cy="10" r="2" />
+                                </svg>
+                            </span>
+                            <span class="skill-name">IoT Developer</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== PINK FLOYD ===== -->
+    <section id="pink-floyd" class="pink-floyd">
+        <div class="rainbow-divider prism-rainbow"></div>
+
+        <div class="container">
+            <div class="pf-header">
+                <div class="pf-header-text animate-on-scroll from-left">
+                    <h2>
+                        SHINE ON <br />
+                        <span class="text-prism">YOU CRAZY</span> <br />
+                        DIAMOND
+                    </h2>
+                    <p>
+                        Pink Floyd didn't just make music; they created sonic architecture. Their pioneering use of
+                        synthesizers, philosophical lyrics, and elaborate live shows redefined progressive and
+                        psychedelic rock.
+                    </p>
+                </div>
+
+                <div class="animate-on-scroll from-right">
+                    <button class="btn-play">
+                        <!-- Play icon (triangle) -->
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="white"
+                            stroke="none">
+                            <polygon points="6,3 20,12 6,21" />
+                        </svg>
+                        <span>Initiate Playback</span>
+                    </button>
+                </div>
+            </div>
+
+            <div class="albums-grid">
+                <!-- Album 1: Dark Side of the Moon -->
+                <div class="album-card animate-on-scroll">
+                    <img src="https://upload.wikimedia.org/wikipedia/en/3/3b/Dark_Side_of_the_Moon.png"
+                        alt="The Dark Side of the Moon" />
+                    <div class="album-overlay">
+                        <div class="album-inner">
+                            <span class="album-year">1973</span>
+                            <h3 class="album-title">The Dark Side of the Moon</h3>
+                            <p class="album-desc">A conceptual masterpiece exploring themes of conflict, greed, time,
+                                and mental illness.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Album 2: Wish You Were Here -->
+                <div class="album-card animate-on-scroll">
+                    <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Pink_Floyd%2C_Wish_You_Were_Here_%281975%29.png"
+                        alt="Wish You Were Here" />
+                    <div class="album-overlay">
+                        <div class="album-inner">
+                            <span class="album-year">1975</span>
+                            <h3 class="album-title">Wish You Were Here</h3>
+                            <p class="album-desc">A tribute to founding member Syd Barrett, critiquing the music
+                                business.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Album 3: The Wall -->
+                <div class="album-card animate-on-scroll the-wall-card">
+                    <div class="wall-cover" aria-label="The Wall"></div>
+                    <div class="album-overlay">
+                        <div class="album-inner">
+                            <span class="album-year">1979</span>
+                            <h3 class="album-title">The Wall</h3>
+                            <p class="album-desc">A rock opera exploring abandonment and personal isolation through a
+                                metaphorical wall.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== GALLERY ===== -->
+    <section id="gallery" class="gallery">
+        <div class="container">
+            <div class="gallery-header animate-on-scroll">
+                <h2>Visual <span class="accent">Echoes</span></h2>
+                <p>A collection of moments, inspirations, and aesthetic explorations.</p>
+            </div>
+
+            <div class="gallery-grid">
+                <div class="gallery-item span-2-row animate-on-scroll">
+                    <div class="overlay"></div>
+                    <img src="images/guitar1.jpg" alt="Guitar Session" />
+                    <div class="caption"><span>Guitar Session</span></div>
+                </div>
+                <div class="gallery-item animate-on-scroll">
+                    <div class="overlay"></div>
+                    <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=800&q=80"
+                        alt="Abstract Art" />
+                    <div class="caption"><span>Abstract Art</span></div>
+                </div>
+                <div class="gallery-item span-2-col animate-on-scroll">
+                    <div class="overlay"></div>
+                    <img src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=800&q=80"
+                        alt="Music Production" />
+                    <div class="caption"><span>Music Production</span></div>
+                </div>
+                <div class="gallery-item animate-on-scroll">
+                    <div class="overlay"></div>
+                    <img src="images/guitar2.jpg" alt="Guitar Setup" />
+                    <div class="caption"><span>Guitar Setup</span></div>
+                </div>
+                <div class="gallery-item span-2-row animate-on-scroll">
+                    <div class="overlay"></div>
+                    <img src="https://images.unsplash.com/photo-1633511090164-b44bfeb39dcd?w=800&q=80"
+                        alt="Psychedelic colors" />
+                    <div class="caption"><span>Psychedelic Colors</span></div>
+                </div>
+                <div class="gallery-item span-2-col animate-on-scroll">
+                    <div class="overlay"></div>
+                    <img src="https://images.unsplash.com/photo-1470229722913-7c090be5c520?w=800&q=80"
+                        alt="Live Show" />
+                    <div class="caption"><span>Live Show</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CONTACT ===== -->
+    <section id="contact" class="contact">
+        <div class="bg-gradient"></div>
+
+        <div class="container contact-inner">
+            <div class="contact-grid">
+                <!-- Info Side -->
+                <div class="contact-info animate-on-scroll">
+                    <h2>Keep Talking.</h2>
+                    <p>
+                        Whether you want to discuss code, collaborate on music, or just debate which Pink Floyd album is
+                        truly the best, I'm all ears.
+                    </p>
+
+                    <div class="social-links">
+                        <a href="mailto:dangal.manit@gmail.com" class="social-link">
+                            <div class="social-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <rect width="20" height="16" x="2" y="4" rx="2" />
+                                    <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+                                </svg>
+                            </div>
+                            <span>dangal.manit@gmail.com</span>
+                        </a>
+                        <a href="https://www.instagram.com/manit.exe" target="_blank" rel="noopener"
+                            class="social-link">
+                            <div class="social-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
+                                    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                                    <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
+                                </svg>
+                            </div>
+                            <span>@manit.exe</span>
+                        </a>
+                        <a href="https://www.youtube.com/@MANIT._exe" target="_blank" rel="noopener"
+                            class="social-link">
+                            <div class="social-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <path
+                                        d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.56 49.56 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.12 24.12 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.55 49.55 0 0 1-16.2 0A2 2 0 0 1 2.5 17" />
+                                    <path d="m10 15 5-3-5-3z" />
+                                </svg>
+                            </div>
+                            <span>Man!t</span>
+                        </a>
+                        <a href="https://github.com/manitdangal" target="_blank" rel="noopener" class="social-link">
+                            <div class="social-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <path
+                                        d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4" />
+                                    <path d="M9 18c-4.51 2-5-2-7-2" />
+                                </svg>
+                            </div>
+                            <span>manitdangal</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Form Side -->
+                <div class="contact-form-wrap glass-panel animate-on-scroll scale">
+                    <div class="glow-orb"></div>
+                    <h3>Send a Message</h3>
+
+                    <form id="contact-form">
+                        <div class="form-group">
+                            <label>Name</label>
+                            <input type="text" name="name" placeholder="Syd Barrett" required />
+                        </div>
+                        <div class="form-group">
+                            <label>Email</label>
+                            <input type="email" name="email" placeholder="syd@moon.com" required />
+                        </div>
+                        <div class="form-group">
+                            <label>Message</label>
+                            <textarea name="message" placeholder="How I wish, how I wish you were here..."
+                                required></textarea>
+                        </div>
+                        <button type="submit" class="btn-submit">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <path d="m22 2-7 20-4-9-9-4Z" />
+                                <path d="M22 2 11 13" />
+                            </svg>
+                            Launch Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+        <div class="rainbow-divider prism-rainbow"></div>
+        <div class="container footer-inner">
+            <div class="footer-brand">
+                <!-- Rainbow/triangle icon -->
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M22 17a10 10 0 0 0-20 0" />
+                    <path d="M6 17a6 6 0 0 1 12 0" />
+                    <path d="M10 17a2 2 0 0 1 4 0" />
+                </svg>
+                <span>MANIT.</span>
+            </div>
+
+            <p class="footer-copy">© 2026 Manit Dangal – Pink Floyd Fan Site.</p>
+
+            <div class="footer-links">
+                <a href="#">Privacy</a>
+                <a href="#">Terms</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Music autoplay via enter overlay
+        const overlay = document.getElementById('enter-overlay');
+        const enterBtn = document.getElementById('enter-btn');
+        const audio = document.getElementById('bg-music');
+        const musicToggle = document.getElementById('music-toggle');
+        let isPlaying = false;
+
+        function startMusic() {
+            audio.volume = 0.4;
+            audio.play().then(() => {
+                isPlaying = true;
+                musicToggle.classList.add('playing');
+                overlay.classList.add('fade-out');
+                setTimeout(() => overlay.style.display = 'none', 600);
+            }).catch(() => {
+                overlay.classList.add('fade-out');
+                setTimeout(() => overlay.style.display = 'none', 600);
+            });
+        }
+
+        enterBtn.addEventListener('click', startMusic);
+        overlay.addEventListener('click', (e) => {
+            if (e.target === overlay) startMusic();
+        });
+
+        musicToggle.addEventListener('click', () => {
+            if (isPlaying) {
+                audio.pause();
+                isPlaying = false;
+                musicToggle.classList.remove('playing');
+            } else {
+                audio.play();
+                isPlaying = true;
+                musicToggle.classList.add('playing');
+            }
+        });
+    </script>
+</body>
+
+</html>

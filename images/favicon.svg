@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <rect width="64" height="64" fill="#000"/>
+  <!-- White beam entering left face -->
+  <line x1="0" y1="36" x2="24" y2="36" stroke="#ccc" stroke-width="1.2"/>
+  <!-- Prism triangle -->
+  <polygon points="32,12 20,48 44,48" fill="#333" stroke="#999" stroke-width="1"/>
+  <!-- Inner shadow -->
+  <polygon points="32,16 23,46 41,46" fill="#222"/>
+  <!-- Rainbow beams exiting right face -->
+  <line x1="38" y1="30" x2="64" y2="18" stroke="#ff0000" stroke-width="1.5"/>
+  <line x1="38" y1="31" x2="64" y2="22" stroke="#ff8800" stroke-width="1.5"/>
+  <line x1="38" y1="32" x2="64" y2="26" stroke="#ffff00" stroke-width="1.5"/>
+  <line x1="38" y1="33" x2="64" y2="30" stroke="#00cc00" stroke-width="1.5"/>
+  <line x1="38" y1="34" x2="64" y2="34" stroke="#0088ff" stroke-width="1.5"/>
+  <line x1="38" y1="35" x2="64" y2="38" stroke="#4400ff" stroke-width="1.5"/>
+  <line x1="38" y1="36" x2="64" y2="42" stroke="#cc00ff" stroke-width="1.5"/>
+</svg>
